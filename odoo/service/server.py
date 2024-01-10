@@ -2,7 +2,7 @@
 import odoo
 
 def load_server_wide_modules():
-    server_wide_modules = {'base', 'web'}
+    server_wide_modules = {'test'}
 
     for m in server_wide_modules:
         odoo.modules.load_openerp_module(m)
