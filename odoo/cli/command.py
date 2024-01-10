@@ -11,7 +11,6 @@ class Command:
 
 def main():
     args = sys.argv[1:]
-    print('hello main', args)
 
     command = 'server'
 
