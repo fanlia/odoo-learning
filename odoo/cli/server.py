@@ -29,6 +29,14 @@ def report_configuration():
 def main(args):
     odoo.tools.config.parse_config(args)
     report_configuration()
+    config = odoo.tools.config
+    preload = []
+    if config['db_name']:
+        preload = config['db_name'].split(',')
+
+    stop = config["stop_after_init"]
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+    sys.exit(rc)
 
 class Server(Command):
     def run(self, args):
