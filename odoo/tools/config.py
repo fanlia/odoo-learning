@@ -7,6 +7,7 @@ from os.path import expandvars, expanduser, abspath, realpath, normcase
 import logging
 logging.basicConfig(level=logging.DEBUG)
 
+import odoo
 from .. import release
 
 class configmanager(object):
@@ -48,6 +49,7 @@ class configmanager(object):
 
     def parse_config(self, args=None):
         opt = self._parse_config(args)
+        odoo.modules.module.initialize_sys_path()
         return opt
 
     def _parse_config(self, args=None):
