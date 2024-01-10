@@ -3,6 +3,12 @@ import sys
 
 commands = {}
 
+class Command:
+    name = None
+    def __init_subclass__(cls):
+        cls.name = cls.name or cls.__name__.lower()
+        commands[cls.name] = cls
+
 def main():
     args = sys.argv[1:]
     print('hello main', args)
