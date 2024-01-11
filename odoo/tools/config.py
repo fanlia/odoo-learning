@@ -90,7 +90,7 @@ class configmanager(object):
             self.options[name] = value
 
     def __getitem__(self, key):
-        return self.options[key]
+        return self.get(key)
 
     def get(self, key, default=None):
         return self.options.get(key, default)
