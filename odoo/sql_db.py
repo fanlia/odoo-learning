@@ -12,18 +12,8 @@ def connection_info_for(db_name):
 
     return connection_info
 
-_Pool = {}
-
 def db_connect(db_name):
-    global _Pool
-    if _Pool.get(db_name) is None:
-        info = connection_info_for(db_name)
-        print(info)
-        _Pool[db_name] = psycopg2.connect(**info)
-    return _Pool[db_name]
-
-def close_db(db_name):
-    global _Pool
-    if _Pool.get(db_name):
-        _Pool[db_name].close()
-        del _Pool[db_name]
+    info = connection_info_for(db_name)
+    print(info)
+    conn = psycopg2.connect(**info)
+    return conn
