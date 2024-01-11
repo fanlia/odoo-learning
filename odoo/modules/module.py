@@ -17,5 +17,3 @@ def initialize_sys_path():
         if ad not in odoo.addons.__path__:
             odoo.addons.__path__.append(ad)
 
-def load_modules(registry, update_module):
-    pass
